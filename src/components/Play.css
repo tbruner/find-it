@@ -1,0 +1,19 @@
+#target-box {
+  border: 5px solid red;
+  height: 60px;
+  width: 60px;
+  display: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+#game-space {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-img {
+  margin: 0;
+  padding: 0;
+}
