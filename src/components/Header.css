@@ -1,0 +1,6 @@
+header {
+  background-color: hsl(206, 16%, 26%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
