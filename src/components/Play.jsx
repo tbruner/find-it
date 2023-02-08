@@ -7,7 +7,7 @@ const Play = () => {
   let newClick = true;
 
   function checkClick(e) {
-    const targetBox = document.querySelector("#target-box");
+    const targetBox = document.querySelector("#target-container");
 
     if (newClick) {
       let rect = e.target.getBoundingClientRect();
@@ -17,9 +17,9 @@ const Play = () => {
       let left = cursorX - 35;
       if (left < 0) left = 0;
       if (left > pictureWidth - 70) left = pictureWidth - 70;
-      let top = cursorY - pictureHeight - 35;
-      if (top > -70) top = -70;
-      if (top < -pictureHeight) top = -pictureHeight;
+      let top = cursorY - 35;
+      if (top < 0) top = 0;
+      if (top > pictureHeight - 70) top = pictureHeight - 70;
 
       targetBox.style.left = left + "px";
       targetBox.style.top = top + "px";
@@ -39,7 +39,10 @@ const Play = () => {
         alt="household hidden object image"
         onClick={checkClick}
       />
-      <div id="target-box" />
+      <div id="target-container">
+        <div id="target-box"></div>
+        <div id="target-dropdown"></div>
+      </div>
     </div>
   );
 };

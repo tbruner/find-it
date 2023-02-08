@@ -2,15 +2,27 @@
   border: 5px solid red;
   height: 60px;
   width: 60px;
+  margin: 0;
+  padding: 0;
+}
+
+#target-dropdown {
+  background-color: black;
+  height: 20px;
+  width: 50px;
+}
+
+#target-container {
   display: none;
-  position: relative;
+  position: absolute;
+  width: fit-content;
   margin: 0;
   padding: 0;
 }
 
 #game-space {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  position: relative;
 }
 
 .game-img {
