@@ -5,9 +5,19 @@ const Play = () => {
   let pictureHeight = 700;
   let pictureWidth = 700;
   let newClick = true;
+  let roseLoc = [253, 185];
+  let globeLoc = [394, 364];
+  let candleLoc = [18, 264];
+  // last paintbrush location has two brushes
+  let paintbrushLocs = [
+    [62, 611],
+    [564, 563],
+    [464, 84],
+  ];
 
   function checkClick(e) {
     const targetBox = document.querySelector("#target-container");
+    const dropdown = document.querySelector("#target-dropdown");
 
     if (newClick) {
       let rect = e.target.getBoundingClientRect();
@@ -24,6 +34,17 @@ const Play = () => {
       targetBox.style.left = left + "px";
       targetBox.style.top = top + "px";
       targetBox.style.display = "block";
+
+      if (
+        roseLoc[0] > left &&
+        roseLoc[0] < left + 70 &&
+        roseLoc[1] > top &&
+        roseLoc[1] < top + 70
+      ) {
+        dropdown.style.backgroundColor = "white";
+      } else {
+        dropdown.style.backgroundColor = "black";
+      }
       newClick = false;
     } else {
       targetBox.style.display = "none";
