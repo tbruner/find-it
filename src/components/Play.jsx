@@ -63,18 +63,26 @@ const Play = ({ gameImg }) => {
   }
 
   return (
-    <div id="game-space">
-      <img
-        className="game-img"
-        src={gameImg.image}
-        alt="household hidden object image"
-        onClick={checkClick}
-      />
-      <div id="target-container">
-        <div id="target-box"></div>
-        <div id="target-dropdown"></div>
+    <>
+      <h2>Find these items:</h2>
+      <ul className="items-to-find">
+        {gameImg.items.map((item) => (
+          <li key={item.key}>{item.name}</li>
+        ))}
+      </ul>
+      <div id="game-space">
+        <img
+          className="game-img"
+          src={gameImg.image}
+          alt="household hidden object image"
+          onClick={checkClick}
+        />
+        <div id="target-container">
+          <div id="target-box"></div>
+          <div id="target-dropdown"></div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

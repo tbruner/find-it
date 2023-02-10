@@ -31,16 +31,19 @@ function App() {
         name: "Rose",
         image: null,
         location: [253, 185],
+        key: 253185,
       },
       {
         name: "Globe",
         image: null,
         location: [394, 364],
+        key: 394364,
       },
       {
         name: "Candle",
         image: null,
         location: [18, 264],
+        key: 18264,
       },
       {
         name: "Paintbrushes",
@@ -52,6 +55,7 @@ function App() {
           [564, 563],
           [464, 84],
         ],
+        key: 62611,
       },
     ],
   };
