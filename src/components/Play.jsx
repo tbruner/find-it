@@ -5,7 +5,6 @@ const Play = ({ gameImg }) => {
 
   function checkClick(e) {
     const targetBox = document.querySelector("#target-container");
-    const dropdown = document.querySelector("#target-dropdown");
 
     if (newClick) {
       let rect = e.target.getBoundingClientRect();
@@ -23,7 +22,7 @@ const Play = ({ gameImg }) => {
 
       targetBox.style.left = left + "px";
       targetBox.style.top = top + "px";
-      targetBox.style.display = "block";
+      targetBox.style.display = "flex";
 
       let found = false;
       gameImg.items.forEach((item) => {
@@ -35,7 +34,6 @@ const Play = ({ gameImg }) => {
               loc[1] > top &&
               loc[1] < top + 70
             ) {
-              dropdown.style.backgroundColor = "white";
               found = true;
             }
           });
@@ -45,13 +43,12 @@ const Play = ({ gameImg }) => {
           item.location[1] > top &&
           item.location[1] < top + 70
         ) {
-          dropdown.style.backgroundColor = "white";
           found = true;
         }
       });
 
       if (!found) {
-        dropdown.style.backgroundColor = "black";
+        // verify correct item found
       }
 
       newClick = false;
@@ -81,7 +78,11 @@ const Play = ({ gameImg }) => {
         />
         <div id="target-container">
           <div id="target-box"></div>
-          <div id="target-dropdown"></div>
+          <div id="target-dropdown">
+            {gameImg.items.map((item) => (
+              <div key={item.key}>{item.name}</div>
+            ))}
+          </div>
         </div>
       </div>
     </>

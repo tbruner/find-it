@@ -7,9 +7,17 @@
 }
 
 #target-dropdown {
-  background-color: black;
-  height: 20px;
-  width: 50px;
+  background-color: hsl(0, 0%, 96%);
+}
+
+#target-dropdown div {
+  color: black;
+  padding: 5px;
+}
+
+#target-dropdown div:hover {
+  background-color: hsl(0, 0%, 90%);
+  cursor: pointer;
 }
 
 #target-container {
