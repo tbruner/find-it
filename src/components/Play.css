@@ -29,3 +29,21 @@
   margin: 0;
   padding: 0;
 }
+
+.items-heading {
+  display: flex;
+  align-items: center;
+}
+
+.items-to-find {
+  display: flex;
+  gap: 14px;
+  flex-direction: row;
+  list-style-type: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.items-to-find li {
+  text-align: center;
+}

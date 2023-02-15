@@ -64,12 +64,14 @@ const Play = ({ gameImg }) => {
 
   return (
     <>
-      <h2>Find these items:</h2>
-      <ul className="items-to-find">
-        {gameImg.items.map((item) => (
-          <li key={item.key}>{item.name}</li>
-        ))}
-      </ul>
+      <div className="items-heading">
+        <h2>Find these items:</h2>
+        <ul className="items-to-find">
+          {gameImg.items.map((item) => (
+            <li key={item.key}>{item.name}</li>
+          ))}
+        </ul>
+      </div>
       <div id="game-space">
         <img
           className="game-img"
