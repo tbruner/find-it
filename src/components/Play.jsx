@@ -1,7 +1,9 @@
 import "./Play.css";
+import { useState } from "react";
 
 const Play = ({ gameImg }) => {
   let newClick = true;
+  const [found, setFound] = useState("");
 
   function checkClick(e) {
     const targetBox = document.querySelector("#target-container");
@@ -24,7 +26,6 @@ const Play = ({ gameImg }) => {
       targetBox.style.top = top + "px";
       targetBox.style.display = "flex";
 
-      let found = false;
       gameImg.items.forEach((item) => {
         if (isNaN(item.location[0])) {
           item.location.forEach((loc) => {
@@ -34,7 +35,7 @@ const Play = ({ gameImg }) => {
               loc[1] > top &&
               loc[1] < top + 70
             ) {
-              found = true;
+              setFound(item.name);
             }
           });
         } else if (
@@ -43,13 +44,9 @@ const Play = ({ gameImg }) => {
           item.location[1] > top &&
           item.location[1] < top + 70
         ) {
-          found = true;
+          setFound(item.name);
         }
       });
-
-      if (!found) {
-        // verify correct item found
-      }
 
       newClick = false;
     } else {
@@ -59,13 +56,22 @@ const Play = ({ gameImg }) => {
     }
   }
 
+  function checkMatch(e) {
+    if (e.target.innerText === found) {
+      const item = document.querySelector(`#${found}`);
+      item.style.backgroundColor = "red";
+    }
+  }
+
   return (
     <>
       <div className="items-heading">
         <h2>Find these items:</h2>
         <ul className="items-to-find">
           {gameImg.items.map((item) => (
-            <li key={item.key}>{item.name}</li>
+            <li key={item.key} id={item.name}>
+              {item.name}
+            </li>
           ))}
         </ul>
       </div>
@@ -80,7 +86,9 @@ const Play = ({ gameImg }) => {
           <div id="target-box"></div>
           <div id="target-dropdown">
             {gameImg.items.map((item) => (
-              <div key={item.key}>{item.name}</div>
+              <div key={item.key} onClick={checkMatch}>
+                {item.name}
+              </div>
             ))}
           </div>
         </div>
