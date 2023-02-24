@@ -7,6 +7,7 @@ const Play = ({ gameImg }) => {
 
   function checkClick(e) {
     const targetBox = document.querySelector("#target-container");
+    targetBox.classList.remove("wrong");
 
     if (newClick) {
       let rect = e.target.getBoundingClientRect();
@@ -57,9 +58,18 @@ const Play = ({ gameImg }) => {
   }
 
   function checkMatch(e) {
+    const targetBox = document.querySelector("#target-container");
+
     if (e.target.innerText === found) {
       const item = document.querySelector(`#${found}`);
       item.style.backgroundColor = "green";
+      targetBox.style.display = "none";
+    } else {
+      targetBox.classList.add("wrong");
+      // wait for animation
+      setTimeout(() => {
+        targetBox.style.display = "none";
+      }, 1000);
     }
   }
 

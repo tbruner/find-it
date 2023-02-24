@@ -55,3 +55,29 @@
 .items-to-find li {
   text-align: center;
 }
+
+.wrong {
+  position: relative;
+  animation-name: wrong;
+  animation-duration: 1s;
+}
+
+@keyframes wrong {
+  10%,
+  90% {
+    transform: translate(-1px);
+  }
+  20%,
+  80% {
+    transform: translate(2px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate(-4px);
+  }
+  40%,
+  60% {
+    transform: translate(4px);
+  }
+}
