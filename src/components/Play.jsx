@@ -59,7 +59,7 @@ const Play = ({ gameImg }) => {
   function checkMatch(e) {
     if (e.target.innerText === found) {
       const item = document.querySelector(`#${found}`);
-      item.style.backgroundColor = "red";
+      item.style.backgroundColor = "green";
     }
   }
 
