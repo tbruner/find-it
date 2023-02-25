@@ -1,11 +1,12 @@
-import "./Play.css";
 import { useState } from "react";
+import handleRequest from "../handles/Handles";
+import "./Play.css";
 
 const Play = ({ gameImg }) => {
   let newClick = true;
   const [found, setFound] = useState("");
 
-  function checkClick(e) {
+  async function checkClick(e) {
     const targetBox = document.querySelector("#target-container");
     targetBox.classList.remove("wrong");
 
@@ -27,7 +28,9 @@ const Play = ({ gameImg }) => {
       targetBox.style.top = top + "px";
       targetBox.style.display = "flex";
 
-      gameImg.items.forEach((item) => {
+      const imageRef = await handleRequest(gameImg.name);
+
+      imageRef.items.forEach((item) => {
         if (isNaN(item.location[0])) {
           item.location.forEach((loc) => {
             if (
@@ -59,6 +62,7 @@ const Play = ({ gameImg }) => {
 
   function checkMatch(e) {
     const targetBox = document.querySelector("#target-container");
+    console.log(found);
 
     if (e.target.innerText === found) {
       const item = document.querySelector(`#${found}`);

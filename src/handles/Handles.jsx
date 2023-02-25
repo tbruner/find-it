@@ -1,4 +1,4 @@
-import { addDoc, collection } from "@firebase/firestore";
+import { doc, getDoc, addDoc, collection } from "@firebase/firestore";
 import { firestore } from "../firebase_setup/firebase";
 
 const handleSubmit = (testdata) => {
@@ -12,4 +12,14 @@ const handleSubmit = (testdata) => {
     console.log(err);
   }
 };
-export default handleSubmit;
+
+async function handleRequest(image) {
+  const imageRef = doc(firestore, "game-images", image);
+  const imageSnap = await getDoc(imageRef);
+  if (imageSnap.exists()) {
+    return imageSnap.data();
+  } else {
+    console.err("No such data");
+  }
+}
+export default handleRequest;

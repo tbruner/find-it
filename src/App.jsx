@@ -6,23 +6,8 @@ import householdImg from "./assets/find-household.jpg";
 import "./App.css";
 
 function App() {
-  /* firestore test code
- const dataRef = useRef();
-  const submithandler = (e) => {
-    e.preventDefault();
-    handleSubmit(dataRef.current.value);
-    dataRef.current.value = "";
-  };
-  return (
-    <div className="App">
-      <form onSubmit={submithandler}>
-        <input type="text" ref={dataRef} />
-        <button type="submit">Save</button>
-      </form>
-    </div>
-  );
-  */
   const household = {
+    name: "household",
     pictureHeight: 700,
     pictureWidth: 700,
     image: householdImg,
