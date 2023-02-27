@@ -5,6 +5,7 @@ import "./Play.css";
 const Play = ({ gameImg }) => {
   let newClick = true;
   const [found, setFound] = useState(0);
+  const [items, setItems] = useState(gameImg.items.map((item) => item));
 
   async function checkClick(e) {
     const targetBox = document.querySelector("#target-container");
@@ -70,7 +71,7 @@ const Play = ({ gameImg }) => {
       <div className="items-heading">
         <h2>Find these items:</h2>
         <ul className="items-to-find">
-          {gameImg.items.map((item) => (
+          {items.map((item) => (
             <li key={item.key} id={item.name}>
               {item.count} {item.name}
             </li>
@@ -87,7 +88,7 @@ const Play = ({ gameImg }) => {
         <div id="target-container">
           <div id="target-box"></div>
           <div id="target-dropdown">
-            {gameImg.items.map((item) => (
+            {items.map((item) => (
               <div key={item.key} data-id={item.key} onClick={checkMatch}>
                 {item.name}
               </div>
