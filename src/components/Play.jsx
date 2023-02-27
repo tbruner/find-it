@@ -4,7 +4,7 @@ import "./Play.css";
 
 const Play = ({ gameImg }) => {
   let newClick = true;
-  const [found, setFound] = useState("");
+  const [found, setFound] = useState(0);
 
   async function checkClick(e) {
     const targetBox = document.querySelector("#target-container");
@@ -37,7 +37,7 @@ const Play = ({ gameImg }) => {
           item.location[1] > top &&
           item.location[1] < top + 70
         ) {
-          setFound(item.name);
+          setFound(item.id);
         }
       });
 
@@ -53,8 +53,8 @@ const Play = ({ gameImg }) => {
     const targetBox = document.querySelector("#target-container");
     console.log(found);
 
-    if (e.target.innerText === found) {
-      const item = document.querySelector(`#${found}`);
+    if (e.target.dataset.id === found) {
+      const item = document.querySelector(`#${e.target.innerText}`);
       item.style.backgroundColor = "green";
       targetBox.style.display = "none";
     } else {
@@ -73,7 +73,7 @@ const Play = ({ gameImg }) => {
         <ul className="items-to-find">
           {gameImg.items.map((item) => (
             <li key={item.key} id={item.name}>
-              {item.name}
+              {item.count} {item.name}
             </li>
           ))}
         </ul>
@@ -89,7 +89,7 @@ const Play = ({ gameImg }) => {
           <div id="target-box"></div>
           <div id="target-dropdown">
             {gameImg.items.map((item) => (
-              <div key={item.key} onClick={checkMatch}>
+              <div key={item.key} data-id={item.key} onClick={checkMatch}>
                 {item.name}
               </div>
             ))}

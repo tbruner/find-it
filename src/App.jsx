@@ -14,36 +14,23 @@ function App() {
     items: [
       {
         name: "Rose",
-        image: null,
-        key: 253185,
+        count: 1,
+        key: 1,
       },
       {
         name: "Globe",
-        image: null,
-        key: 394364,
+        count: 1,
+        key: 2,
       },
       {
         name: "Candle",
-        image: null,
-        key: 18264,
-      },
-      {
-        name: "Paintbrush1",
-        image: null,
         count: 1,
-        key: 62611,
+        key: 3,
       },
       {
-        name: "Paintbrush2",
-        image: null,
-        count: 1,
-        key: 564563,
-      },
-      {
-        name: "Paintbrush3",
-        image: null,
-        count: 2,
-        key: 46484,
+        name: "Paintbrushes",
+        count: 4,
+        key: 4,
       },
     ],
   };
