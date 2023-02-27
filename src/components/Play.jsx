@@ -51,7 +51,6 @@ const Play = ({ gameImg }) => {
 
   function checkMatch(e) {
     const targetBox = document.querySelector("#target-container");
-    console.log(found);
 
     if (e.target.dataset.id === found) {
       const item = document.querySelector(`#${e.target.innerText}`);
