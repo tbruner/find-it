@@ -15,32 +15,35 @@ function App() {
       {
         name: "Rose",
         image: null,
-        location: [253, 185],
         key: 253185,
       },
       {
         name: "Globe",
         image: null,
-        location: [394, 364],
         key: 394364,
       },
       {
         name: "Candle",
         image: null,
-        location: [18, 264],
         key: 18264,
       },
       {
-        name: "Paintbrushes",
+        name: "Paintbrush1",
         image: null,
-        count: 3,
-        // last paintbrush location has two brushes
-        location: [
-          [62, 611],
-          [564, 563],
-          [464, 84],
-        ],
+        count: 1,
         key: 62611,
+      },
+      {
+        name: "Paintbrush2",
+        image: null,
+        count: 1,
+        key: 564563,
+      },
+      {
+        name: "Paintbrush3",
+        image: null,
+        count: 2,
+        key: 46484,
       },
     ],
   };
