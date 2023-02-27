@@ -31,18 +31,7 @@ const Play = ({ gameImg }) => {
       const imageRef = await handleRequest(gameImg.name);
 
       imageRef.items.forEach((item) => {
-        if (isNaN(item.location[0])) {
-          item.location.forEach((loc) => {
-            if (
-              loc[0] > left &&
-              loc[0] < left + 70 &&
-              loc[1] > top &&
-              loc[1] < top + 70
-            ) {
-              setFound(item.name);
-            }
-          });
-        } else if (
+        if (
           item.location[0] > left &&
           item.location[0] < left + 70 &&
           item.location[1] > top &&
