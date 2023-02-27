@@ -57,6 +57,16 @@ const Play = ({ gameImg }) => {
       const item = document.querySelector(`#${e.target.innerText}`);
       item.style.backgroundColor = "green";
       targetBox.style.display = "none";
+      let newItems = [...items];
+      for (let i = 0; i < newItems.length; i++) {
+        console.log(newItems[i]);
+        if (newItems[i].key == found) {
+          newItems.splice(i, 1);
+          break;
+        }
+      }
+      setItems(newItems);
+      console.log(items);
     } else {
       targetBox.classList.add("wrong");
       // wait for animation
