@@ -27,11 +27,11 @@ function App() {
         count: 1,
         key: 3,
       },
-      {
+      /* {
         name: "Paintbrushes",
         count: 4,
         key: 4,
-      },
+      },*/
     ],
   };
 
