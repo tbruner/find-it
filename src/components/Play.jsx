@@ -75,10 +75,25 @@ const Play = ({ gameImg }) => {
         targetBox.style.display = "none";
       }, 1000);
     }
+
+    let gameWon = true;
+
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].count) {
+        gameWon = false;
+        break;
+      }
+    }
+
+    if (gameWon) {
+      const statusMessage = document.querySelector(".status-message");
+      statusMessage.innerText = "You Won!";
+    }
   }
 
   return (
     <>
+      <h2 className="status-message"></h2>
       <div className="items-heading">
         <h2>Find these items:</h2>
         <ul className="items-to-find">
@@ -99,11 +114,14 @@ const Play = ({ gameImg }) => {
         <div id="target-container">
           <div id="target-box"></div>
           <div id="target-dropdown">
-            {items.map((item) => (
-              <div key={item.key} data-id={item.key} onClick={checkMatch}>
-                {item.name}
-              </div>
-            ))}
+            {items.map(
+              (item) =>
+                item.count > 0 && (
+                  <div key={item.key} data-id={item.key} onClick={checkMatch}>
+                    {item.name}
+                  </div>
+                )
+            )}
           </div>
         </div>
       </div>
