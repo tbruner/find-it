@@ -50,23 +50,24 @@ const Play = ({ gameImg }) => {
     }
   }
 
-  function checkMatch(e) {
+  async function checkMatch(e) {
     const targetBox = document.querySelector("#target-container");
 
     if (e.target.dataset.id === found) {
       const item = document.querySelector(`#${e.target.innerText}`);
+      let newItems = [...items];
+
       item.style.backgroundColor = "green";
       targetBox.style.display = "none";
-      let newItems = [...items];
+
       for (let i = 0; i < newItems.length; i++) {
-        console.log(newItems[i]);
         if (newItems[i].key == found) {
-          newItems.splice(i, 1);
+          newItems[i].count--;
           break;
         }
       }
+
       setItems(newItems);
-      console.log(items);
     } else {
       targetBox.classList.add("wrong");
       // wait for animation
@@ -83,7 +84,7 @@ const Play = ({ gameImg }) => {
         <ul className="items-to-find">
           {items.map((item) => (
             <li key={item.key} id={item.name}>
-              {item.count} {item.name}
+              {item.name}
             </li>
           ))}
         </ul>
