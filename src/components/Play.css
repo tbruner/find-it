@@ -11,8 +11,16 @@
 }
 
 #target-dropdown div {
-  color: black;
+  font-weight: 500;
   padding: 5px;
+}
+
+.active-item {
+  color: hsl(0, 0%, 5%);
+}
+
+.inactive-item {
+  color: hsl(0, 0%, 65%);
 }
 
 #target-dropdown div:hover {

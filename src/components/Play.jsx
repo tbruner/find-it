@@ -114,14 +114,16 @@ const Play = ({ gameImg }) => {
         <div id="target-container">
           <div id="target-box"></div>
           <div id="target-dropdown">
-            {items.map(
-              (item) =>
-                item.count > 0 && (
-                  <div key={item.key} data-id={item.key} onClick={checkMatch}>
-                    {item.name}
-                  </div>
-                )
-            )}
+            {items.map((item) => (
+              <div
+                key={item.key}
+                data-id={item.key}
+                className={item.count > 0 ? "active-item" : "inactive-item"}
+                onClick={checkMatch}
+              >
+                {item.name}
+              </div>
+            ))}
           </div>
         </div>
       </div>
