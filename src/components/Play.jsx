@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Timer from "./Timer.jsx";
 import handleRequest from "../handles/Handles";
 import "./Play.css";
 
@@ -6,6 +7,7 @@ const Play = ({ gameImg }) => {
   let newClick = true;
   const [found, setFound] = useState(0);
   const [items, setItems] = useState(gameImg.items.map((item) => item));
+  const [gameState, setGameState] = useState(true);
 
   async function checkClick(e) {
     const targetBox = document.querySelector("#target-container");
@@ -88,11 +90,13 @@ const Play = ({ gameImg }) => {
     if (gameWon) {
       const statusMessage = document.querySelector(".status-message");
       statusMessage.innerText = "You Won!";
+      setGameState(false);
     }
   }
 
   return (
     <>
+      <Timer gameState={gameState} />
       <h2 className="status-message"></h2>
       <div className="items-heading">
         <h2>Find these items:</h2>
