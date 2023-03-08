@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./Timer.css";
 
 const Timer = ({ gameState }) => {
   const [seconds, setSeconds] = useState(0);
@@ -23,7 +24,14 @@ const Timer = ({ gameState }) => {
 
   return (
     <>
-      <div className="timer">{seconds}</div>
+      <div className="label">Time:</div>
+      <div className="timer">
+        {seconds >= 60
+          ? `${Math.floor(seconds / 60)}:${
+              seconds % 60 < 10 ? `0${seconds % 60}` : seconds % 60
+            }`
+          : seconds}
+      </div>
     </>
   );
 };
