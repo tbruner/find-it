@@ -97,9 +97,9 @@ const Play = ({ gameImg }) => {
   return (
     <>
       <Timer gameState={gameState} />
-      <h2 className="status-message"></h2>
+      <div className="status-message"></div>
       <div className="items-heading">
-        <h2>Find these items:</h2>
+        <div className="label">Find these items:</div>
         <ul className="items-to-find">
           {items.map((item) => (
             <li key={item.key} id={item.name}>

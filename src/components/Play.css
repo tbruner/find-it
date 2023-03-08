@@ -52,6 +52,11 @@
   align-items: center;
 }
 
+.label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .items-to-find {
   display: flex;
   gap: 14px;
