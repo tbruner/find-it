@@ -23,16 +23,15 @@ const Timer = ({ gameState }) => {
   }, [isActive, seconds, gameState]);
 
   return (
-    <>
-      <div className="label">Time:</div>
-      <div className="timer">
+    <div className="timer">
+      <div className="time">
         {seconds >= 60
           ? `${Math.floor(seconds / 60)}:${
               seconds % 60 < 10 ? `0${seconds % 60}` : seconds % 60
             }`
           : seconds}
       </div>
-    </>
+    </div>
   );
 };
 

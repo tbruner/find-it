@@ -1,3 +1,8 @@
 .timer {
+  display: flex;
+  align-items: center;
+}
+
+.time {
   font-size: 24px;
 }

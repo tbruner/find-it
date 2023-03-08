@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Timer from "./Timer.jsx";
 import handleRequest from "../handles/Handles";
 import "./Play.css";
 
@@ -95,8 +94,7 @@ const Play = ({ gameImg }) => {
   }
 
   return (
-    <>
-      <Timer gameState={gameState} />
+    <div className="play-area">
       <div className="status-message"></div>
       <div className="items-heading">
         <div className="label">Find these items:</div>
@@ -131,7 +129,7 @@ const Play = ({ gameImg }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
