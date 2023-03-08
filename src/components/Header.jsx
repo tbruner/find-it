@@ -1,11 +1,11 @@
 import Timer from "./Timer.jsx";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ gameState }) => {
   return (
     <header>
       <h1>find it!</h1>
-      <Timer gameState={true} />
+      <Timer gameState={gameState} />
     </header>
   );
 };
