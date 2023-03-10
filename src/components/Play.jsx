@@ -3,7 +3,9 @@ import "./Play.css";
 const Play = ({ gameImg, items, checkClick, checkMatch }) => {
   return (
     <div className="play-area">
-      <div className="status-message"></div>
+      <div id="modal" className="modal-hidden">
+        <div className="status-message"></div>
+      </div>
       <div className="items-heading">
         <div className="label">Find these items:</div>
         <ul className="items-to-find">
