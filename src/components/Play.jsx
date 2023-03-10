@@ -4,7 +4,13 @@ const Play = ({ gameImg, items, checkClick, checkMatch }) => {
   return (
     <div className="play-area">
       <div id="modal" className="modal-hidden">
-        <div className="status-message"></div>
+        <div className="modal-content">
+          <div className="status-message"></div>
+          <label>Enter your initals:</label>
+          <input type="text"></input>
+          <button>Submit</button>
+          <button>Home</button>
+        </div>
       </div>
       <div className="items-heading">
         <div className="label">Find these items:</div>

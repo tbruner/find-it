@@ -61,7 +61,7 @@
   background-color: hsla(0, 0%, 5%, 40%);
 }
 
-.status-message {
+.modal-content {
   background-color: var(--bg);
   padding: 25px;
 }
