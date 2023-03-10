@@ -122,8 +122,9 @@ function App() {
     if (gameWon) {
       const statusMessage = document.querySelector(".status-message");
       const modal = document.querySelector("#modal");
+
       modal.classList.add("modal-display");
-      modal.classList.remove("modal-hidden");
+
       statusMessage.innerText = "You Won!";
       setGameState(false);
     }
