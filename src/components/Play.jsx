@@ -1,6 +1,6 @@
 import "./Play.css";
 
-const Play = ({ gameImg, items, checkClick, checkMatch }) => {
+const Play = ({ gameImg, items, checkClick, checkMatch, homeOnClick }) => {
   return (
     <div className="play-area">
       <div id="modal" className="modal-hidden">
@@ -9,7 +9,7 @@ const Play = ({ gameImg, items, checkClick, checkMatch }) => {
           <label>Enter your initals:</label>
           <input type="text"></input>
           <button>Submit</button>
-          <button>Home</button>
+          <button onClick={homeOnClick}>Home</button>
         </div>
       </div>
       <div className="items-heading">

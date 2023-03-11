@@ -7,11 +7,7 @@ const Timer = ({ gameState }) => {
 
   useEffect(() => {
     let interval = null;
-    if (gameState) {
-      setIsActive(true);
-    } else {
-      setIsActive(false);
-    }
+
     if (isActive) {
       interval = setInterval(() => {
         setSeconds((seconds) => seconds + 1);
@@ -20,7 +16,15 @@ const Timer = ({ gameState }) => {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [isActive, seconds, gameState]);
+  }, [isActive, seconds]);
+
+  useEffect(() => {
+    if (gameState) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
+  }, [gameState]);
 
   return (
     <div className="timer">

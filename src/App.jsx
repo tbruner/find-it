@@ -130,6 +130,16 @@ function App() {
     }
   }
 
+  function homeOnClick() {
+    setItems(gameImg.items.map((item) => item));
+    setGameState(true);
+    setFound(0);
+
+    const modal = document.querySelector("#modal");
+
+    modal.classList.remove("modal-display");
+  }
+
   return (
     <div id="app">
       <Header gameState={gameState} />
@@ -138,6 +148,7 @@ function App() {
         items={items}
         checkClick={checkClick}
         checkMatch={checkMatch}
+        homeOnClick={homeOnClick}
       />
     </div>
   );
