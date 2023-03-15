@@ -21,6 +21,8 @@ const Timer = ({ gameState }) => {
   useEffect(() => {
     if (gameState) {
       setIsActive(true);
+      // Reset seconds to zero on new game
+      setSeconds(0);
     } else {
       setIsActive(false);
     }
