@@ -16,7 +16,11 @@ const Play = ({ gameImg, items, checkClick, checkMatch, homeOnClick }) => {
         <div className="label">Find these items:</div>
         <ul className="items-to-find">
           {items.map((item) => (
-            <li key={item.key} id={item.name}>
+            <li
+              key={item.key}
+              id={item.name}
+              style={{ backgroundColor: item.count > 0 ? "" : "green" }}
+            >
               {item.name}
             </li>
           ))}

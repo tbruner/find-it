@@ -91,7 +91,6 @@ function App() {
       const item = document.querySelector(`#${e.target.innerText}`);
       let newItems = [...items];
 
-      item.style.backgroundColor = "green";
       targetBox.style.display = "none";
 
       for (let i = 0; i < newItems.length; i++) {
@@ -139,11 +138,8 @@ function App() {
     for (let i = 0; i < newItems.length; i++) {
       newItems[i].count = 1;
     }
-    console.log(newItems);
 
     setItems(newItems);
-
-    console.log(items);
 
     const modal = document.querySelector("#modal");
 
