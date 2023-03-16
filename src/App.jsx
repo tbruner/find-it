@@ -38,7 +38,7 @@ function App() {
   let newClick = true;
   const [gameImg, setGameImg] = useState(household);
   const [found, setFound] = useState(0);
-  const [items, setItems] = useState(gameImg.items.map((item) => item));
+  const [items, setItems] = useState([...gameImg.items]);
   const [gameState, setGameState] = useState(true);
 
   async function checkClick(e) {
@@ -131,9 +131,19 @@ function App() {
   }
 
   function homeOnClick() {
-    setItems(gameImg.items.map((item) => item));
     setGameState(true);
     setFound(0);
+
+    let newItems = [...items];
+
+    for (let i = 0; i < newItems.length; i++) {
+      newItems[i].count = 1;
+    }
+    console.log(newItems);
+
+    setItems(newItems);
+
+    console.log(items);
 
     const modal = document.querySelector("#modal");
 
