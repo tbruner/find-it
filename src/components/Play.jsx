@@ -21,7 +21,7 @@ const Play = ({ gameImg, items, checkClick, checkMatch, homeOnClick }) => {
             <li
               key={item.key}
               id={item.name}
-              style={{ backgroundColor: item.count > 0 ? "" : "green" }}
+              className={item.count > 0 ? "item-to-find" : "found-item"}
             >
               {item.name}
             </li>

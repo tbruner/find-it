@@ -105,6 +105,12 @@ button:hover {
 
 .items-to-find li {
   text-align: center;
+  padding: 6px;
+}
+
+.found-item {
+  text-decoration: line-through;
+  background-color: green;
 }
 
 .wrong {
