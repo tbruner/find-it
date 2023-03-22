@@ -6,9 +6,11 @@ const Play = ({ gameImg, items, checkClick, checkMatch, homeOnClick }) => {
       <div id="modal" className="modal-hidden">
         <div className="modal-content">
           <div className="status-message"></div>
-          <label>Enter your initals:</label>
-          <input type="text"></input>
-          <button>Submit</button>
+          <div className="modal-leaderboard-input">
+            <label for="leaderboard-name">Enter your name:</label>
+            <input id="leaderboard-name" type="text"></input>
+          </div>
+          <button>Add to Leaderboard</button>
           <button onClick={homeOnClick}>Home</button>
         </div>
       </div>
