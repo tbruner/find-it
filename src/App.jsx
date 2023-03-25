@@ -1,5 +1,5 @@
 import { useState } from "react";
-import handleRequest from "./handles/Handles";
+import { handleRequest, addNameToLeaderboard } from "./handles/Handles";
 import Play from "./components/Play";
 import Header from "./components/Header";
 import householdImg from "./assets/find-household.jpg";
@@ -40,6 +40,7 @@ function App() {
   const [found, setFound] = useState(0);
   const [items, setItems] = useState([...gameImg.items]);
   const [gameState, setGameState] = useState(true);
+  const [time, setTime] = useState(0);
 
   async function checkClick(e) {
     const targetBox = document.querySelector("#target-container");
@@ -129,7 +130,7 @@ function App() {
     }
   }
 
-  function homeOnClick() {
+  function reset() {
     setGameState(true);
     setFound(0);
 
@@ -146,15 +147,25 @@ function App() {
     modal.classList.remove("modal-display");
   }
 
+  async function addToLeaderboard() {
+    const nameInput = document.querySelector("#leaderboard-name");
+    const name = nameInput.value;
+
+    addNameToLeaderboard(name, time, gameImg.name);
+
+    reset();
+  }
+
   return (
     <div id="app">
-      <Header gameState={gameState} />
+      <Header gameState={gameState} setTime={setTime} />
       <Play
         gameImg={household}
         items={items}
         checkClick={checkClick}
         checkMatch={checkMatch}
-        homeOnClick={homeOnClick}
+        homeOnClick={reset}
+        addToLeaderboard={addToLeaderboard}
       />
     </div>
   );

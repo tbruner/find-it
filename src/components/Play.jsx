@@ -1,16 +1,23 @@
 import "./Play.css";
 
-const Play = ({ gameImg, items, checkClick, checkMatch, homeOnClick }) => {
+const Play = ({
+  gameImg,
+  items,
+  checkClick,
+  checkMatch,
+  homeOnClick,
+  addToLeaderboard,
+}) => {
   return (
     <div className="play-area">
       <div id="modal" className="modal-hidden">
         <div className="modal-content">
           <div className="status-message"></div>
           <div className="modal-leaderboard-input">
-            <label for="leaderboard-name">Enter your name:</label>
+            <label htmlFor="leaderboard-name">Enter your name:</label>
             <input id="leaderboard-name" type="text"></input>
           </div>
-          <button>Add to Leaderboard</button>
+          <button onClick={addToLeaderboard}>Add to Leaderboard</button>
           <button onClick={homeOnClick}>Home</button>
         </div>
       </div>

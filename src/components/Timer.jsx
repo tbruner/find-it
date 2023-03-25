@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Timer.css";
 
-const Timer = ({ gameState }) => {
+const Timer = ({ gameState, setTime }) => {
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
 
@@ -24,6 +24,7 @@ const Timer = ({ gameState }) => {
       // Reset seconds to zero on new game
       setSeconds(0);
     } else {
+      setTime(seconds);
       setIsActive(false);
     }
   }, [gameState]);
