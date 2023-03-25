@@ -2,7 +2,7 @@ import { doc, getDoc, addDoc, collection } from "@firebase/firestore";
 import { firestore } from "../firebase_setup/firebase";
 
 export async function addNameToLeaderboard(name, time, image) {
-  const ref = collection(firestore, `${image}-leaderboard`); // Firebase creates this automatically collection(getFirestore(), "library")
+  const ref = collection(firestore, `${image}-leaderboard`);
 
   let data = {
     name: name,
