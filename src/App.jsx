@@ -122,8 +122,12 @@ function App() {
     if (gameWon) {
       const statusMessage = document.querySelector(".status-message");
       const modal = document.querySelector("#modal");
+      const nameInput = document.querySelector("#leaderboard-name");
 
       modal.classList.add("modal-display");
+
+      // target/focus input box
+      nameInput.focus();
 
       statusMessage.innerText = "You Won!";
       setGameState(false);
@@ -152,6 +156,9 @@ function App() {
     const name = nameInput.value;
 
     addNameToLeaderboard(name, time, gameImg.name);
+
+    // clear name from input box
+    nameInput.value = "";
 
     reset();
   }
