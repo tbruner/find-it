@@ -1,6 +1,11 @@
 import { useState } from "react";
-import { handleRequest, addNameToLeaderboard } from "./handles/Handles";
+import {
+  handleImageRequest,
+  handleLeaderboardRequest,
+  addNameToLeaderboard,
+} from "./handles/Handles";
 import Play from "./components/Play";
+import Home from "./components/Home";
 import Header from "./components/Header";
 import householdImg from "./assets/find-household.jpg";
 import "./App.css";
@@ -41,6 +46,13 @@ function App() {
   const [items, setItems] = useState([...gameImg.items]);
   const [gameState, setGameState] = useState(true);
   const [time, setTime] = useState(0);
+  const [displayHome, setHome] = useState(false);
+  const [leaderboard, setLeaderboard] = useState();
+
+  async function getLeaderboard(name) {
+    const response = await handleLeaderboardRequest(name);
+    return response;
+  }
 
   async function checkClick(e) {
     const targetBox = document.querySelector("#target-container");
@@ -64,7 +76,7 @@ function App() {
       targetBox.style.top = top + "px";
       targetBox.style.display = "flex";
 
-      const imageRef = await handleRequest(gameImg.name);
+      const imageRef = await handleImageRequest(gameImg.name);
 
       imageRef.items.forEach((item) => {
         if (
@@ -134,6 +146,11 @@ function App() {
     }
   }
 
+  async function homeOnClick() {
+    setLeaderboard(await getLeaderboard(gameImg.name));
+    setHome(true);
+  }
+
   function reset() {
     setGameState(true);
     setFound(0);
@@ -160,20 +177,25 @@ function App() {
     // clear name from input box
     nameInput.value = "";
 
-    reset();
+    setLeaderboard(await getLeaderboard(gameImg.name));
+    setHome(true);
   }
 
   return (
     <div id="app">
       <Header gameState={gameState} setTime={setTime} />
-      <Play
-        gameImg={household}
-        items={items}
-        checkClick={checkClick}
-        checkMatch={checkMatch}
-        homeOnClick={reset}
-        addToLeaderboard={addToLeaderboard}
-      />
+      {displayHome ? (
+        <Home leaderboard={leaderboard} />
+      ) : (
+        <Play
+          gameImg={household}
+          items={items}
+          checkClick={checkClick}
+          checkMatch={checkMatch}
+          homeOnClick={homeOnClick}
+          addToLeaderboard={addToLeaderboard}
+        />
+      )}
     </div>
   );
 }
