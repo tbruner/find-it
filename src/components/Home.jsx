@@ -1,6 +1,6 @@
 import "./Home.css";
 
-const Home = ({ leaderboard }) => {
+const Home = ({ leaderboard, reset }) => {
   let leaders = leaderboard.leaders;
 
   leaders.sort((a, b) => {
@@ -34,6 +34,7 @@ const Home = ({ leaderboard }) => {
           ))}
         </tbody>
       </table>
+      <button onClick={reset}>Play Again</button>
     </div>
   );
 };

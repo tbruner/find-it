@@ -154,6 +154,7 @@ function App() {
   function reset() {
     setGameState(true);
     setFound(0);
+    setHome(false);
 
     let newItems = [...items];
 
@@ -185,7 +186,7 @@ function App() {
     <div id="app">
       <Header gameState={gameState} setTime={setTime} />
       {displayHome ? (
-        <Home leaderboard={leaderboard} />
+        <Home leaderboard={leaderboard} reset={reset} />
       ) : (
         <Play
           gameImg={household}
