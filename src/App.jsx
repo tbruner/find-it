@@ -163,10 +163,6 @@ function App() {
     }
 
     setItems(newItems);
-
-    const modal = document.querySelector("#modal");
-
-    modal.classList.remove("modal-display");
   }
 
   async function addToLeaderboard() {
