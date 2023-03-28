@@ -7,10 +7,15 @@ import {
 } from "@firebase/firestore";
 import { firestore } from "../firebase_setup/firebase";
 
+function generateKey(pre) {
+  return `${pre}-${new Date().getTime()}`;
+}
+
 export async function addNameToLeaderboard(name, time, image) {
   const imageRef = doc(firestore, "leaderboard", image);
 
   let data = {
+    key: generateKey(name),
     name: name,
     time: time,
   };
