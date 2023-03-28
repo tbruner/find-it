@@ -5,14 +5,18 @@ const Home = ({ leaderboard }) => {
   return (
     <div className="leaderboard">
       <div className="leaderboard-title">Leaderboard</div>
-      <div className="leaderboard-list">
+      <table className="leaderboard-table">
+        <tr>
+          <th>Name</th>
+          <th>Time</th>
+        </tr>
         {leaderboard.leaders.map((player) => (
-          <div className="leaderboard-user">
-            <div className="leaderboard-user-name">{player.name}</div>
-            <div className="leaderboard-user-time">{player.time}</div>
-          </div>
+          <tr className="leaderboard-user">
+            <td className="leaderboard-user-name">{player.name}</td>
+            <td className="leaderboard-user-time">{player.time}</td>
+          </tr>
         ))}
-      </div>
+      </table>
     </div>
   );
 };

@@ -3,6 +3,7 @@
 
   --bg: hsl(0, 0%, 10%);
   --font: hsl(0, 0%, 93%);
+  --secondary: hsl(209, 20%, 19%);
 
   color-scheme: light dark;
   color: var(--font);
@@ -26,7 +27,8 @@ body {
 
 @media (prefers-color-scheme: light) {
   :root {
-    --font: hsl(209, 20%, 39%);
+    --font: hsl(209, 20%, 16%);
     --bg: hsl(227, 57%, 91%);
+    --secondary: hsl(209, 20%, 69%);
   }
 }
