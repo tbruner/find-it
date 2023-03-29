@@ -9,3 +9,7 @@ an image.
 
 This project is part of [The Odin Project](https://www.theodinproject.com) curriculum.
 The goal of thos project is to gain experience working with Firebase.
+
+## Play
+
+This game is available to play [here](https://find-it-167fe.web.app/)
